@@ -16,6 +16,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      - run: npx next typegen
       - run: npx tsc --noEmit
   typecheck:
     runs-on: ubuntu-latest
@@ -26,6 +27,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: npx next typegen
       - run: npx tsc --noEmit
   build:
     needs: [lint, typecheck]
